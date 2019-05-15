@@ -1,0 +1,59 @@
+<h1 mat-divider>Locations</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <mat-expansion-panel style="margin-top: 20px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>Germany</b>
+      </mat-panel-title>
+      <mat-panel-description>
+        <span style="color:green;text-align: center"> Success</span>
+      </mat-panel-description>
+      <mat-divider></mat-divider>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <p>File Successfully tranported.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel style="margin-top: 20px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>England</b>
+      </mat-panel-title>
+      <mat-panel-description>
+        <span style="color:red;text-align: center"> Failed</span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <p>Failed due to server error.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel style="margin-top: 20px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>India&nbsp;&nbsp;&nbsp;&nbsp;</b>
+      </mat-panel-title>
+      <mat-panel-description>
+        <span style="color:green;text-align: center"> Success</span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <p>File Successfully tranported.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel style="margin-bottom: 20px;margin-top:20px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+      </mat-panel-title>
+      <mat-panel-description>
+        <span style="color:red;text-align: center"> Failed</span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <p>Failed due to transport error.</p>
+  </mat-expansion-panel>
+
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <!--<button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>-->
+</div>

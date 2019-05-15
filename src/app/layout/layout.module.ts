@@ -15,6 +15,7 @@ import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
+//import { DialogLogsComponent } from './shared/dialog-logs/dialog-logs.component';
 
 @NgModule({
     imports: [

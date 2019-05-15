@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
+
 export interface PeriodicElement {
     name: string;
     position: string;
@@ -23,13 +27,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
     styleUrls: ['./tables.component.scss']
 })
 export class TablesComponent implements OnInit {
+    animal: string;
+    name: string;
+
     displayedColumns = ['id', 'progress', 'name', 'color'];
     dataSource: MatTableDataSource<any>;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor() {
+    constructor(public dialog: MatDialog) {
         // Create 100 users
         const users: UserData[] = [];
         for (let i = 1; i <= 100; i++) {
@@ -52,6 +59,17 @@ export class TablesComponent implements OnInit {
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();
         }
+    }
+    openDialog(): void {
+        const dialogRef = this.dialog.open(DialogLogsComponent, {
+            width: '550px',
+            data: { name: this.name, animal: this.animal }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            this.animal = result;
+        });
     }
 }
 

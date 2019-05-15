@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 
 export interface PeriodicElement {
     name: string;
@@ -11,7 +13,7 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
     { position: "FCC_Fin1", name: 'chart_of_ac1', weight:"05/05/19", symbol: 'Logs' },
     { position: "FCC_Fin1", name: 'chart_of_ac1', weight:"05/06/19", symbol: 'Logs' },
-    { position:"FCC_Fin1", name: 'chart_of_ac1', weight: "05/07/19", symbol: 'Logs' },
+    { position:"FCC_Fin1",  name: 'chart_of_ac1', weight: "05/07/19", symbol: 'Logs' },
     { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/08/19", symbol: 'Logs' },
     { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/09/19", symbol: 'Logs' },
     { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/10/19", symbol: 'Logs' },
@@ -24,19 +26,22 @@ const ELEMENT_DATA: PeriodicElement[] = [
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+    animal: string;
+    name: string;
+
 
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true
     };
-    public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    public barChartLabels: string[] = [ 'Nov-18','Dec-18', 'Jan-19', 'Feb-19', 'Mar-19', 'April-19', 'May-19'];
     public barChartType: string;
     public barChartLegend: boolean;
 
     public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Failed Transport' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Success Transport' }
     ];
 
     
@@ -50,7 +55,7 @@ export class DashboardComponent implements OnInit {
         this.dataSource.filter = filterValue;
     }
 
-    constructor() {
+    constructor(public dialog: MatDialog) {
         this.places = [
             {
                 imgSrc: 'assets/images/card-1.jpg',
@@ -85,5 +90,16 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.barChartType = 'bar';
         this.barChartLegend = true;
+    }
+    openDialog(): void {
+        const dialogRef = this.dialog.open(DialogLogsComponent, {
+            width: '550px',
+            data: { name: this.name, animal: this.animal }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            this.animal = result;
+        });
     }
 }
