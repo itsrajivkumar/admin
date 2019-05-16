@@ -4,20 +4,22 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 
 export interface PeriodicElement {
-    name: string;
-    position: string;
-    weight: string;
-    symbol: string;
+    data: string;
+    process: string;
+    startDate: string;
+    action: string;
+    lastUpdatedDate:string;
+    status:string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-    { position: "FCC_Fin1", name: 'chart_of_ac1', weight:"05/05/19", symbol: 'Logs' },
-    { position: "FCC_Fin1", name: 'chart_of_ac1', weight:"05/06/19", symbol: 'Logs' },
-    { position:"FCC_Fin1",  name: 'chart_of_ac1', weight: "05/07/19", symbol: 'Logs' },
-    { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/08/19", symbol: 'Logs' },
-    { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/09/19", symbol: 'Logs' },
-    { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/10/19", symbol: 'Logs' },
-    { position: "FCC_Fin1", name: 'chart_of_ac1', weight: "05/11/19", symbol: 'Logs' }
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/05/19 12:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/06/19 13:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
+    { process:"FCC_Fin1",  data: 'chart_of_ac1', startDate: "05/07/19 14:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/08/19 15:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/09/19 16:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/10/19 17:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/11/19 18:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' }
 ];
 
 @Component({
@@ -45,7 +47,7 @@ export class DashboardComponent implements OnInit {
     ];
 
     
-    displayedColumns = ['position', 'name', 'weight', 'symbol'];
+    displayedColumns = ['process', 'data', 'startDate', 'lastUpdatedDate','status','action'];
     dataSource = new MatTableDataSource(ELEMENT_DATA);
     places: Array<any> = [];
 

@@ -35,22 +35,36 @@
                 <mat-card-title>Latest Files</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-                    <ng-container matColumnDef="position">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [class.isMobile]="isMobile">
+                    <ng-container matColumnDef="process">
                         <th mat-header-cell *matHeaderCellDef> Process </th>
-                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.process}} </td>
                     </ng-container>
-                    <ng-container matColumnDef="name">
+                    <ng-container matColumnDef="data">
                         <th mat-header-cell *matHeaderCellDef> Data </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.data}} </td>
                     </ng-container>
-                    <ng-container matColumnDef="weight">
-                        <th mat-header-cell *matHeaderCellDef> Date </th>
-                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    <ng-container matColumnDef="startDate">
+                        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
                     </ng-container>
-                    <ng-container matColumnDef="symbol">
+                    <ng-container matColumnDef="lastUpdatedDate">
+                        <th mat-header-cell *matHeaderCellDef>Last Updated</th>
+                        <td mat-cell *matCellDef="let element"> {{element.lastUpdatedDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="openDialog()">{{element.symbol}}</button></td>
+                        <td mat-cell *matCellDef="let element"> 
+                            <button mat-raised-button (click)="openDialog()">Loc 1</button><b>--></b>
+                            <button mat-raised-button (click)="openDialog()">Loc 2</button><b>--></b>
+                            <button mat-raised-button (click)="openDialog()">Loc 3</button><b>--></b>
+                            <button mat-raised-button (click)="openDialog()">Loc 4</button><b>--></b>
+                            <button mat-raised-button (click)="openDialog()">Loc 5</button>
+                        </td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
