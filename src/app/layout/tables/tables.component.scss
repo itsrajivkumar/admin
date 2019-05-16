@@ -7,7 +7,17 @@ table {
     width: 100%;
 }
 
-td,
-th {
-    width: 25%;
+.mat-table th,
+td {
+    text-align: center;
+}
+
+.bggreen {
+    background-color: green;
+    color: white
+}
+
+.bgred {
+    background-color: red;
+    color: white
 }

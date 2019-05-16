@@ -10,16 +10,17 @@ export interface PeriodicElement {
     action: string;
     lastUpdatedDate:string;
     status:string;
+    color:string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/05/19 12:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/06/19 13:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
-    { process:"FCC_Fin1",  data: 'chart_of_ac1', startDate: "05/07/19 14:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/08/19 15:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/09/19 16:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/10/19 17:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/11/19 18:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' }
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/05/19 12:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs',color:"blue" },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/06/19 13:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Completed", action: 'Logs',color:"green" },
+    { process:"FCC_Fin1",  data: 'chart_of_ac1', startDate: "05/07/19 14:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Failed", action: 'Logs',color:"red" },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/08/19 15:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs',color:"blue" },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/09/19 16:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Completed", action: 'Logs',color:"green" },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/10/19 17:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Failed", action: 'Logs',color:"red" },
+    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/11/19 18:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Success", action: 'Logs' ,color:"blue"}
 ];
 
 @Component({
@@ -37,13 +38,21 @@ export class DashboardComponent implements OnInit {
         scaleShowVerticalLines: false,
         responsive: true
     };
+    public barchartColors:any= [
+        {
+          backgroundColor:'#BF212F'          
+        },
+        {
+            backgroundColor:'#01692C'          
+          }
+        ];
     public barChartLabels: string[] = [ 'Nov-18','Dec-18', 'Jan-19', 'Feb-19', 'Mar-19', 'April-19', 'May-19'];
     public barChartType: string;
     public barChartLegend: boolean;
 
     public barChartData: any[] = [
         { data: [65, 59, 80, 81, 56, 55, 40], label: 'Failed Transport' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Success Transport' }
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Successful Transport' }
     ];
 
     
