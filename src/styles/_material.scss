@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @font-face {
     font-family: 'Fontil Sans';
     src: url('../assets/fonts/FontinSans/Fontin_Sans_R.otf') format('opentype');
 }
+/* You can add global styles to this file, and also import other style files */
+
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~@angular/material/theming';
+
 
 $custom-typography: mat-typography-config(
     $font-family: 'Fontil Sans, monospace',
@@ -12,3 +18,4 @@ $custom-typography: mat-typography-config(
     $body-1: mat-typography-level(16px, 24px, 500)
 );
 @include angular-material-typography($custom-typography);
+

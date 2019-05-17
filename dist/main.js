@@ -14,61 +14,70 @@ var map = {
 	],
 	"./charts/charts.module": [
 		"./src/app/layout/charts/charts.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
-		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"charts-charts-module"
 	],
 	"./dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
-		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module",
-		"default~dashboard-dashboard-module~tables-tables-module"
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
+		"default~dashboard-dashboard-module~tables-tables-module~users-users-module"
 	],
 	"./forms/forms.module": [
 		"./src/app/layout/forms/forms.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
 		"forms-forms-module"
 	],
 	"./grid/grid.module": [
 		"./src/app/layout/grid/grid.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
 		"grid-grid-module"
 	],
 	"./layout/layout.module": [
 		"./src/app/layout/layout.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
 		"layout-layout-module"
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
 		"login-login-module"
 	],
 	"./material-components/material-components.module": [
 		"./src/app/layout/material-components/material-components.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
 		"material-components-material-components-module"
 	],
 	"./tables/tables.module": [
 		"./src/app/layout/tables/tables.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~a898257e",
-		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module",
-		"default~dashboard-dashboard-module~tables-tables-module",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
+		"default~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"tables-tables-module"
+	],
+	"./users/users.module": [
+		"./src/app/layout/users/users.module.ts",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
+		"default~dashboard-dashboard-module~tables-tables-module~users-users-module",
+		"users-users-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -398,7 +407,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\rajiv\projects\nodejs\git\admin\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/mum-developer4/Desktop/test/angular-material/git/admin/src/main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~charts-charts-module~dashboard-dashboard-module~tables-tables-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module"],{
 
 /***/ "./node_modules/chart.js/src/chart.js":
 /*!********************************************!*\
@@ -32514,4 +32514,4 @@ module.exports = function(module) {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~charts-charts-module~dashboard-dashboard-module~tables-tables-module.js.map
+//# sourceMappingURL=default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module.js.map

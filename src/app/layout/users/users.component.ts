@@ -5,35 +5,34 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 
 export interface PeriodicElement {
-    data: string;
-    process: string;
-    startDate: string;
-    action: string;
-    lastUpdatedDate:string;
-    status:string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    status:string; 
     color:string;
+  
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/05/19 12:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"In-Progress", action: 'Logs',color:"blue" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate:"05/06/19 13:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Completed", action: 'Logs',color:"green" },
-    { process:"FCC_Fin1",  data: 'chart_of_ac1', startDate: "05/07/19 14:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Failed", action: 'Logs',color:"red" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/08/19 15:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"In-Progress", action: 'Logs',color:"blue" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/09/19 16:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Completed", action: 'Logs',color:"green" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/10/19 17:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"Failed", action: 'Logs',color:"red" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/11/19 18:10:10", lastUpdatedDate:"05/05/19 12:10:10",status:"In-Progress", action: 'Logs' ,color:"blue"}
+    { firstName: "Ankit", lastName: 'Singh', email:"ankit@gmail.com", status:"Active", color:"green" },
+    { firstName: "Ritesh", lastName: 'Mallick', email:"Ritesh@gmail.com", status:"Active", color:"green" },
+    { firstName:"Asmita",  lastName: 'Sangar', email: "asmita@gmail.com", status:"Active", color:"green" },
+    { firstName: "Rahul", lastName: 'Jagtap', email: "rahul@gmail.com", status:"Active", color:"green" },
+    { firstName: "Kunal", lastName: 'Marathe', email: "kunal@yahoo.com", status:"Active", color:"green" },
+    { firstName: "Vignesh", lastName: 'Gupta', email: "vignesh@gmail.com", status:"Deactive", color:"red" },
+    { firstName: "Hemant", lastName: 'Khadse', email: "hemant@gmail.com",status:"Deactive", color:"red"}
 ];
 
 @Component({
-    selector: 'app-tables',
-    templateUrl: './tables.component.html',
-    styleUrls: ['./tables.component.scss']
+    selector: 'app-users',
+    templateUrl: './users.component.html',
+    styleUrls: ['./users.component.scss']
 })
-export class TablesComponent implements OnInit {
+export class UsersComponent implements OnInit {
     animal: string;
     name: string;
 
-    displayedColumns = ['process', 'data', 'startDate', 'lastUpdatedDate','status','action'];
+    displayedColumns = ['firstName', 'lastName', 'email', 'status'];
     dataSource: MatTableDataSource<any>;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
