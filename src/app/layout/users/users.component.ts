@@ -11,18 +11,7 @@ export interface PeriodicElement {
     email: string;
     status: string;
     color: string;
-
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    { firstName: "Ankit", lastName: 'Singh', email: "ankit@gmail.com", status: "Active", color: "green" },
-    { firstName: "Ritesh", lastName: 'Mallick', email: "Ritesh@gmail.com", status: "Active", color: "green" },
-    { firstName: "Asmita", lastName: 'Sangar', email: "asmita@gmail.com", status: "Active", color: "green" },
-    { firstName: "Rahul", lastName: 'Jagtap', email: "rahul@gmail.com", status: "Active", color: "green" },
-    { firstName: "Kunal", lastName: 'Marathe', email: "kunal@yahoo.com", status: "Active", color: "green" },
-    { firstName: "Vignesh", lastName: 'Gupta', email: "vignesh@gmail.com", status: "Deactive", color: "red" },
-    { firstName: "Hemant", lastName: 'Khadse', email: "hemant@gmail.com", status: "Deactive", color: "red" }
-];
 
 @Component({
     selector: 'app-users',
@@ -44,10 +33,9 @@ export class UsersComponent implements OnInit {
         const users: UserData[] = [];
         for (let i = 1; i <= 100; i++) {
             users.push(createNewUser(i));
-        }
-
-        // Assign the data to the data source for the table to render
-        this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+        }       
+       
+       // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     }
 
     ngOnInit() {
@@ -58,12 +46,15 @@ export class UsersComponent implements OnInit {
         },
             err => { console.log(err) }
         );
-
         //===========Service Call End=========================
-
+           // Assign the data to the data source for the table to render  
+        this.indexService.getAllusers().subscribe((res) => {  
+            this.dataSource = new MatTableDataSource(res.data);
+        }, err => { console.log(err) });
         
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+
     }
 
     applyFilter(filterValue: string) {
@@ -106,7 +97,7 @@ const COLORS = [
     'gray'
 ];
 const NAMES = [
-    'Maia',
+    ' ',
     'Asher',
     'Olivia',
     'Atticus',
