@@ -21,6 +21,8 @@ export interface PeriodicElement {
 export class UsersComponent implements OnInit {
     animal: string;
     name: string;
+    userListing:boolean=true;
+    createUser:boolean=false;
 
     displayedColumns = ['firstName', 'lastName', 'email', 'status'];
     dataSource: MatTableDataSource<any>;
@@ -38,6 +40,16 @@ export class UsersComponent implements OnInit {
        // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     }
 
+    onActivateCreateUser(){
+        this.createUser=true;
+        this.userListing=false;
+    }
+    onActivateUserListing(){
+        this.createUser=false;
+        this.userListing=true;
+
+    }
+
     ngOnInit() {
 
         // ==========service Call =========================
@@ -50,6 +62,7 @@ export class UsersComponent implements OnInit {
            // Assign the data to the data source for the table to render  
         this.indexService.getAllusers().subscribe((res) => {  
             this.dataSource = new MatTableDataSource(res.data);
+           //this.dataSource = new MatTableDataSource(res);
         }, err => { console.log(err) });
         
         this.dataSource.paginator = this.paginator;
