@@ -3,25 +3,15 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
+import { IndexService } from '../../shared/services/index';
 
 export interface PeriodicElement {
     firstName: string;
     lastName: string;
     email: string;
-    status:string; 
-    color:string;
-  
+    status: string;
+    color: string;
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    { firstName: "Ankit", lastName: 'Singh', email:"ankit@gmail.com", status:"Active", color:"green" },
-    { firstName: "Ritesh", lastName: 'Mallick', email:"Ritesh@gmail.com", status:"Active", color:"green" },
-    { firstName:"Asmita",  lastName: 'Sangar', email: "asmita@gmail.com", status:"Active", color:"green" },
-    { firstName: "Rahul", lastName: 'Jagtap', email: "rahul@gmail.com", status:"Active", color:"green" },
-    { firstName: "Kunal", lastName: 'Marathe', email: "kunal@yahoo.com", status:"Active", color:"green" },
-    { firstName: "Vignesh", lastName: 'Gupta', email: "vignesh@gmail.com", status:"Deactive", color:"red" },
-    { firstName: "Hemant", lastName: 'Khadse', email: "hemant@gmail.com",status:"Deactive", color:"red"}
-];
 
 @Component({
     selector: 'app-users',
@@ -38,20 +28,33 @@ export class UsersComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(public dialog: MatDialog) {
+    constructor(public dialog: MatDialog, public indexService: IndexService) {
         // Create 100 users
         const users: UserData[] = [];
         for (let i = 1; i <= 100; i++) {
             users.push(createNewUser(i));
-        }
-
-        // Assign the data to the data source for the table to render
-        this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+        }       
+       
+       // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     }
 
     ngOnInit() {
+
+        // ==========service Call =========================
+        this.indexService.getUserById().subscribe((res) => {
+            console.log(res)
+        },
+            err => { console.log(err) }
+        );
+        //===========Service Call End=========================
+           // Assign the data to the data source for the table to render  
+        this.indexService.getAllusers().subscribe((res) => {  
+            this.dataSource = new MatTableDataSource(res.data);
+        }, err => { console.log(err) });
+        
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+
     }
 
     applyFilter(filterValue: string) {
@@ -94,7 +97,7 @@ const COLORS = [
     'gray'
 ];
 const NAMES = [
-    'Maia',
+    ' ',
     'Asher',
     'Olivia',
     'Atticus',

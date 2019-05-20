@@ -1,7 +1,10 @@
 .logo{
     margin:20px 0 0 20px;
   
+    position: absolute;
+    z-index: 100;
 }
+a{cursor: pointer}
 .login-page {
     display: flex;
     align-items: center;
