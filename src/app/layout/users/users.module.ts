@@ -12,19 +12,26 @@ import { UsersComponent } from './users.component';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 import {DashboardModule} from '../dashboard/dashboard.module';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCheckboxModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
     imports: [
         CommonModule,
+        
         UsersRoutingModule,
         MatTableModule,
         MatFormFieldModule,
         MatPaginatorModule,
         MatButtonModule,
         MatCardModule,
+        MatCheckboxModule,
         MatDialogModule,
         MatIconModule,
         MatInputModule,
-        DashboardModule
+        DashboardModule,
+        ReactiveFormsModule
     ],
     declarations: [UsersComponent],
     entryComponents: [

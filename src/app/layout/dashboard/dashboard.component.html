@@ -38,23 +38,27 @@
                 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [class.isMobile]="isMobile">
                     <ng-container matColumnDef="process">
                         <th mat-header-cell *matHeaderCellDef> Process </th>
-                        <td mat-cell *matCellDef="let element"> {{element.process}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.processName}} </td>
                     </ng-container>
                     <ng-container matColumnDef="data">
                         <th mat-header-cell *matHeaderCellDef> Data </th>
-                        <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.sourceDataName}} </td>
                     </ng-container>
                     <ng-container matColumnDef="startDate">
                         <th mat-header-cell *matHeaderCellDef> Start Date </th>
-                        <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.processTimeStamp | date}}</td>
                     </ng-container>
                     <ng-container matColumnDef="lastUpdatedDate">
                         <th mat-header-cell *matHeaderCellDef>Last Updated</th>
-                        <td mat-cell *matCellDef="let element"> {{element.lastUpdatedDate}} </td>
+                        <td mat-cell *matCellDef="let element">{{element.fileRegistry.updatedAt | date}} </td>
                     </ng-container>
                     <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef>Status</th>
-                        <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.color}" > {{element.status}} </td>
+                        <td mat-cell *matCellDef="let element">
+                                <span [ngStyle]="{'color':'green'}" *ngIf="element.fileRegistry.status == 1">In-Progress</span>
+                                <span [ngStyle]="{'color':'red'}" *ngIf="element.fileRegistry.status == 0">failed</span>
+                                <span [ngStyle]="{'color':'orange'}" *ngIf="element.fileRegistry.status == 2">competed</span>
+                            </td>
                     </ng-container>
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef> Details </th>

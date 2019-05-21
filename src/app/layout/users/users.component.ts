@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 import { IndexService } from '../../shared/services/index';
+import { resolve } from 'path';
+import { reject } from 'q';
 
 export interface PeriodicElement {
     firstName: string;
@@ -21,6 +24,9 @@ export interface PeriodicElement {
 export class UsersComponent implements OnInit {
     animal: string;
     name: string;
+    userListing: boolean = true;
+    createUser: boolean = false;
+    userForm: FormGroup;
 
     displayedColumns = ['firstName', 'lastName', 'email', 'status'];
     dataSource: MatTableDataSource<any>;
@@ -28,30 +34,53 @@ export class UsersComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(public dialog: MatDialog, public indexService: IndexService) {
+    constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public indexService: IndexService) {
+
+        this.userForm = this.formBuilder.group({
+            firstName: ['', [Validators.required], this.isEmailUnique.bind(this)],
+            lastName: ['', Validators.required],
+            email: ['', [Validators.email, Validators.required]],
+            password: ['', [Validators.required]]
+        });
+
         // Create 100 users
         const users: UserData[] = [];
         for (let i = 1; i <= 100; i++) {
             users.push(createNewUser(i));
-        }       
-       
-       // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+        }
+
+        // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    }
+
+    isEmailUnique(control: FormControl) {
+        return new Promise((resolve, reject) => {
+            resolve({ 'isEmailUnique': true });
+        })
+
+    }
+
+    onActivateCreateUser() {
+        this.createUser = true;
+        this.userListing = false;
+    }
+    onActivateUserListing() {
+        this.createUser = false;
+        this.userListing = true;
+
     }
 
     ngOnInit() {
-
-        // ==========service Call =========================
         this.indexService.getUserById().subscribe((res) => {
             console.log(res)
         },
             err => { console.log(err) }
         );
-        //===========Service Call End=========================
-           // Assign the data to the data source for the table to render  
-        this.indexService.getAllusers().subscribe((res) => {                
+
+        this.indexService.getAllusers().subscribe((res) => {
+        //   alert(JSON.stringify(res));
             this.dataSource = new MatTableDataSource(res.data);
         }, err => { console.log(err) });
-        
+
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
 

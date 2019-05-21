@@ -19,4 +19,8 @@ export class IndexService {
         return this.httpClient.get(this.userApiUrl+"users");
     }
 
+    public  getFileRegistry(){    
+        return this.httpClient.get(this.userApiUrl+"transportId");
+    }
+
 }
