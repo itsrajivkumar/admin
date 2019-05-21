@@ -14,6 +14,7 @@ import {DashboardModule} from '../dashboard/dashboard.module';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCheckboxModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { MatCheckboxModule } from '@angular/material';
         MatDialogModule,
         MatIconModule,
         MatInputModule,
-        DashboardModule
+        DashboardModule,
+        ReactiveFormsModule
     ],
     declarations: [UsersComponent],
     entryComponents: [

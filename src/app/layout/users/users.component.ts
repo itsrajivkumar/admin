@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 import { IndexService } from '../../shared/services/index';
+import { resolve } from 'path';
+import { reject } from 'q';
 
 export interface PeriodicElement {
     firstName: string;
@@ -23,6 +26,7 @@ export class UsersComponent implements OnInit {
     name: string;
     userListing:boolean=true;
     createUser:boolean=false;
+    userForm: FormGroup;
 
     displayedColumns = ['firstName', 'lastName', 'email', 'status'];
     dataSource: MatTableDataSource<any>;
@@ -30,7 +34,15 @@ export class UsersComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(public dialog: MatDialog, public indexService: IndexService) {
+    constructor( private formBuilder: FormBuilder,public dialog: MatDialog, public indexService: IndexService) {
+       
+        this.userForm = this.formBuilder.group({
+            firstName: ['', [Validators.required],this.isEmailUnique.bind(this) ],
+            lastName: ['', Validators.required],
+            email: ['', [Validators.email,Validators.required]],            
+            password: ['',[Validators.required]]
+          });
+      
         // Create 100 users
         const users: UserData[] = [];
         for (let i = 1; i <= 100; i++) {
@@ -38,6 +50,13 @@ export class UsersComponent implements OnInit {
         }       
        
        // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    }
+
+    isEmailUnique(control: FormControl){
+        return new Promise((resolve,reject)=>{
+            resolve({ 'isEmailUnique': true });
+        })
+       
     }
 
     onActivateCreateUser(){
@@ -61,7 +80,7 @@ export class UsersComponent implements OnInit {
         //===========Service Call End=========================
            // Assign the data to the data source for the table to render  
         this.indexService.getAllusers().subscribe((res) => {  
-            this.dataSource = new MatTableDataSource(res.data);
+           this.dataSource = new MatTableDataSource(res.data);
            //this.dataSource = new MatTableDataSource(res);
         }, err => { console.log(err) });
         

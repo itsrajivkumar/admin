@@ -9,11 +9,13 @@
                 </mat-card-header>
     <mat-card-content>
         <!-- <h1 class="app-name">Sb Admin Material</h1> -->
-        <form  class="login-form" fxFlex  >
+        <form [formGroup]="userForm" class="login-form" fxFlex  >
                 <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
                         <div fxFlexFill>
                             <mat-form-field class="w-100">
-                                <input matInput placeholder="Firstname">
+                                <input matInput placeholder="Firstname" formControlName="firstName" >
+                                <mat-error><span *ngIf="userForm.controls['firstName'].hasError('required')" >Firstname is <strong>required &nbsp;</strong> </span></mat-error>
+                                <mat-error><span *ngIf="userForm.controls['firstName'].hasError('isEmailUnique')" >Firstname is <strong>already exists. &nbsp;</strong> </span></mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -42,7 +44,7 @@
                
                 <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                     <div fxFlexFill>
-                        <button mat-raised-button color="primary" class="w-100 mr-10" (click)="onLogin()">Save</button>
+                        <button mat-raised-button color="primary" class="w-100 mr-10" >Save</button>
                         <button mat-raised-button color="primary" class="w-100" (click)="onActivateUserListing()">Cancel</button>
                     </div>
                 </div>
