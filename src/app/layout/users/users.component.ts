@@ -48,7 +48,7 @@ export class UsersComponent implements OnInit {
         );
         //===========Service Call End=========================
            // Assign the data to the data source for the table to render  
-        this.indexService.getAllusers().subscribe((res) => {  
+        this.indexService.getAllusers().subscribe((res) => {                
             this.dataSource = new MatTableDataSource(res.data);
         }, err => { console.log(err) });
         
