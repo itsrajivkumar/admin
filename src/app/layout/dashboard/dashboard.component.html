@@ -1,6 +1,6 @@
 <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
     <div fxFlex>
-        <app-stat [bgClass]="'info'" [icon]="'dashboard'" [count]="13" [label]="'Users'"></app-stat>
+        <app-stat [bgClass]="'info'" [icon]="'dashboard'" [count]=usercount [label]="'Users'"></app-stat>
     </div>
     <div fxFlex>
         <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="124" [label]="'Files'"></app-stat>
@@ -12,6 +12,7 @@
         <app-stat [bgClass]="'danger'" [icon]="'contact_support'" [count]="13" [label]="'Failed Transport!'"></app-stat>
     </div>
 </div>
+
 <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
     <div fxFlex>
         <mat-card>

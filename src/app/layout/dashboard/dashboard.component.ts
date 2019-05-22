@@ -32,8 +32,7 @@ export class DashboardComponent implements OnInit {
     animal: string;
     name: string;
     dataSource: MatTableDataSource<any>;
-
-
+    usercount: any;
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -101,8 +100,12 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.indexService.getFileRegistry().subscribe((response) => {
-
             this.dataSource = new MatTableDataSource(response.data);
+        }, err => { console.log(err) });
+
+        this.indexService.getUserCount().subscribe((response) => {
+            this.usercount = response.data;
+            alert(this.usercount);
         }, err => { console.log(err) });
 
         this.barChartType = 'bar';

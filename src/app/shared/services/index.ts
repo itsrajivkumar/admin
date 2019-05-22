@@ -23,4 +23,9 @@ export class IndexService {
         return this.httpClient.get(this.userApiUrl+"transportId");
     }
 
+    public  getUserCount(){    
+        return this.httpClient.get(this.userApiUrl+"dashboard/usercount");
+    }
+
+
 }
