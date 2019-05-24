@@ -50,7 +50,7 @@ export class TablesComponent implements OnInit {
 
     ngOnInit() {
         // Assign the data to the data source for the table to render
-        this.indexService.getFileRegistry().subscribe((result) => {     
+        this.indexService.getFileRegistry().subscribe((result:any) => {     
             this.dataSource = new MatTableDataSource(result.data);
         }, err => { console.log(err) });
 

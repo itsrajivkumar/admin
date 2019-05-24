@@ -14,6 +14,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { CommonModule } from '@angular/common';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import{IndexService} from './shared/services/index'
@@ -34,10 +38,12 @@ export const createTranslateLoader = (http: HttpClient) => {
     imports: [
         BrowserModule,
         AppRoutingModule,
+        CommonModule,
         BrowserAnimationsModule,
         LayoutModule,
         OverlayModule,
         HttpClientModule,
+        ToastrModule.forRoot(), // ToastrModule added
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

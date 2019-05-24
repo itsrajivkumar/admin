@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
 
     isEmailUnique(control: FormControl) {
         return new Promise((resolve, reject) => {
-            resolve({ 'isEmailUnique': true });
+            resolve({ 'isEmailUnique': false });
         })
 
     }
