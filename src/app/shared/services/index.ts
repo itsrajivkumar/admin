@@ -16,7 +16,7 @@ export class IndexService {
         return this.httpClient.get(this.testApiUrl);
     }
     public  getAllusers(){
-        return this.httpClient.get(this.userApiUrl+"users");
+        return <any> this.httpClient.get(this.userApiUrl+"users");
     }
 
     public  getFileRegistry(){    
