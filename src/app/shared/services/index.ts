@@ -27,5 +27,9 @@ export class IndexService {
         return this.httpClient.get(this.userApiUrl+"dashboard/usercount");
     }
 
+    public  getTransport(){    
+        return this.httpClient.get(this.userApiUrl+"dashboard/fileRegcount");
+    }
+
 
 }

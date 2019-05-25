@@ -34,7 +34,10 @@ export class DashboardComponent implements OnInit {
     name: string;
     dataSource: MatTableDataSource<any>;
     usercount: any;
-    //today:number = Date.now();
+    filecount: any;
+    successTransport:any;
+    failedTransport : any;
+
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -79,10 +82,14 @@ export class DashboardComponent implements OnInit {
         this.indexService.getFileRegistry().subscribe((response:any) => {
             this.dataSource = new MatTableDataSource(response.data);
         }, err => { console.log(err) });
-
+        
         this.indexService.getUserCount().subscribe((response:any) => {
-            this.usercount = response.data;
-           // alert(this.usercount);
+            this.usercount = response.data;          
+        }, err => { console.log(err) });
+        this.indexService.getTransport().subscribe((response:any) => {
+            this.filecount = response.data.count;       
+            this.successTransport = response.data.successcount;
+            this.failedTransport = response.data.failurecount;   
         }, err => { console.log(err) });
 
         this.barChartType = 'bar';
