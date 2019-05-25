@@ -37,9 +37,9 @@ export class UsersComponent implements OnInit {
     constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public indexService: IndexService) {
 
         this.userForm = this.formBuilder.group({
-            firstName: ['', [Validators.required], this.isEmailUnique.bind(this)],
+            firstName: ['', [Validators.required]],
             lastName: ['', Validators.required],
-            email: ['', [Validators.email, Validators.required]],
+            email: ['', [Validators.email, Validators.required], this.isEmailUnique.bind(this)],
             password: ['', [Validators.required]]
         });
 

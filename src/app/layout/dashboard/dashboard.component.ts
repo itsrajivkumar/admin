@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
     name: string;
     dataSource: MatTableDataSource<any>;
     usercount: any;
+    //today:number = Date.now();
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -89,7 +90,7 @@ export class DashboardComponent implements OnInit {
     }
     openDialog(): void {
         const dialogRef = this.dialog.open(DialogLogsComponent, {
-            width: '550px',
+           
             data: { name: this.name, animal: this.animal }
         });
 

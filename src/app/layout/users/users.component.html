@@ -30,22 +30,38 @@
                 <div fxFlex fxlayout="row" fxlayout.lt-md="column">
                     <div fxFlexFill>
                         <mat-form-field class="w-100">
-                            <input matInput placeholder="Lastname">
+                            <input matInput placeholder="Lastname" formControlName="lastName">
+                            <mat-error>
+                                    <span *ngIf="userForm.controls['lastName'].hasError('required')">Lastname is
+                                        <strong>required &nbsp;</strong>
+                                    </span>
+                                </mat-error>
                         </mat-form-field>
+                        
                     </div>
                 </div>
 
                 <div fxFlex fxlayout="row" fxlayout.lt-md="column">
                     <div fxFlexFill>
                         <mat-form-field class="w-100">
-                            <input matInput placeholder="Email">
+                            <input matInput placeholder="Email" formControlName="email">
+                            <mat-error>
+                                    <span *ngIf="userForm.controls['email'].hasError('required')">Email is
+                                        <strong>required &nbsp;</strong>
+                                    </span>
+                                </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
                 <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                     <div fxFlexFill>
                         <mat-form-field class="w-100">
-                            <input matInput type="password" placeholder="Password">
+                            <input matInput type="password" placeholder="Password" formControlName="password">
+                            <mat-error>
+                                    <span *ngIf="userForm.controls['password'].hasError('required')">Password is
+                                        <strong>required &nbsp;</strong>
+                                    </span>
+                                </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
