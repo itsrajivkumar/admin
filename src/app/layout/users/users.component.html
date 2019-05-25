@@ -52,7 +52,7 @@
 
                 <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                     <div fxFlexFill>
-                        <button mat-raised-button color="primary" class="w-100 mr-10">Save</button>
+                        <button mat-raised-button color="primary" class="w-100 mr-10" (click)="saveUser()">Save</button>
                         <button mat-raised-button color="primary" class="w-100" (click)="onActivateUserListing()">Cancel</button>
                     </div>
                 </div>
@@ -61,6 +61,9 @@
         </mat-card-content>
     </mat-card>
 </div>
+
+<!--  listing of the users -->
+
 <div fxFlex *ngIf="userListing">
     <mat-card>
         <mat-card-header>

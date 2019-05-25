@@ -77,7 +77,6 @@ export class UsersComponent implements OnInit {
         );
 
         this.indexService.getAllusers().subscribe((res) => {
-        //   alert(JSON.stringify(res));
             this.dataSource = new MatTableDataSource(res.data);
         }, err => { console.log(err) });
 
@@ -105,7 +104,13 @@ export class UsersComponent implements OnInit {
             this.animal = result;
         });
     }
+    saveUser = (userForm) => {
+        alert("Going to save users"+userForm)
+
+    }
 }
+
+
 
 /** Constants used to fill up our data base. */
 const COLORS = [
