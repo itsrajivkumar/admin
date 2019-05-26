@@ -1,56 +1,47 @@
-<h1 mat-divider>Locations</h1>
+<h1 mat-divider>Details</h1>
 <mat-divider></mat-divider>
 <div mat-dialog-content>
-  <mat-expansion-panel style="margin-top: 20px">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>Germany</b>
-      </mat-panel-title>
-      <mat-panel-description>
-        <span style="color:green;text-align: center"> Success</span>
-      </mat-panel-description>
-      <mat-divider></mat-divider>
-    </mat-expansion-panel-header>
-    <mat-divider></mat-divider>
-    <p>File Successfully tranported.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel style="margin-top: 20px">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>England</b>
-      </mat-panel-title>
-      <mat-panel-description>
-        <span style="color:red;text-align: center"> Failed</span>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-divider></mat-divider>
-    <p>Failed due to server error.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel style="margin-top: 20px">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>India&nbsp;&nbsp;&nbsp;&nbsp;</b>
-      </mat-panel-title>
-      <mat-panel-description>
-        <span style="color:green;text-align: center"> Success</span>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-divider></mat-divider>
-    <p>File Successfully tranported.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel style="margin-bottom: 20px;margin-top:20px">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <b>USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-      </mat-panel-title>
-      <mat-panel-description>
-        <span style="color:red;text-align: center"> Failed</span>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-divider></mat-divider>
-    <p>Failed due to transport error.</p>
-  </mat-expansion-panel>
-
+    <div fxFlex>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout >
+                    <div fxFlex="50%"><b>TransportID:</b></div>
+                    <div fxFlex>{{record[0].transportId}}</div>        
+                </div>
+                <div fxLayout >
+                    <div fxFlex="50%"><b>Application Name:</b></div>
+                    <div fxFlex>{{record[0].applicationName}}</div>        
+                </div>
+                <div fxLayout >
+                    <div fxFlex="50%"><b>Process:</b></div>
+                    <div fxFlex>{{record[0].processName}}</div>        
+                </div>
+                <div fxLayout>
+                    <div fxFlex="50%"><b>Data:</b></div>
+                    <div >{{record[0].sourceDataName}}</div>        
+                </div>
+                <div fxLayout>
+                    <div fxFlex="50%"><b>Source Data Type:</b></div>
+                    <div >{{record[0].sourceDataType}}</div>        
+                </div>
+                <div fxLayout>
+                    <div fxFlex="50%"><b>Output Data Name:</b></div>
+                    <div >{{record[0].outputDataName}}</div>        
+                </div>
+               
+                
+                <div fxLayout>
+                    <div fxFlex="50%"><b>Remarks:</b></div>
+                    <div fxFlex>{{record[0].remarks}}</div>        
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+ 
+   
 </div>
 <mat-divider></mat-divider>
 <div mat-dialog-actions>

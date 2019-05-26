@@ -18,8 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
-        CommonModule,
-        
+        CommonModule,        
         UsersRoutingModule,
         MatTableModule,
         MatFormFieldModule,

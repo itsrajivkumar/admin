@@ -3,10 +3,10 @@
         <app-stat [bgClass]="'info'" [icon]="'dashboard'" [count]=usercount [label]="'Users'"></app-stat>
     </div>
     <div fxFlex>
-        <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]=filecount [label]="'Files'"></app-stat>
+        <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]=inprocesscount [label]="'Files'"></app-stat>
     </div>
     <div fxFlex>
-        <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]=successTransport [label]="'Success Transport !'"></app-stat>
+        <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]=successTransport [label]="'Successful Transport !'"></app-stat>
     </div>
     <div fxFlex>
         <app-stat [bgClass]="'danger'" [icon]="'contact_support'" [count]=failedTransport [label]="'Failed Transport!'"></app-stat>
@@ -19,7 +19,7 @@
             <mat-card-header>
                 <mat-card-title>Bar Chart</mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content *ngIf="barchartShow">
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
                     [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)" [colors]="barchartColors"></canvas>
             </mat-card-content>
@@ -46,11 +46,11 @@
                     </ng-container>
                     <ng-container matColumnDef="startDate">
                         <th mat-header-cell *matHeaderCellDef> Start Date </th>
-                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.processTimeStamp | date:'short'}}</td>
+                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.processTimeStamp*1000 | date:'MM/dd/yyyy H:m:s'}}</td>
                     </ng-container>
                     <ng-container matColumnDef="lastUpdatedDate">
                         <th mat-header-cell *matHeaderCellDef>Last Updated</th>
-                        <td mat-cell *matCellDef="let element">{{element.fileRegistry.updatedAt |date: 'yyyy-MM-dd'}} </td>
+                        <td mat-cell *matCellDef="let element">{{element.lastTimeStamp*1000 |date: 'MM/dd/yyyy H:m:s'}} </td>
                     </ng-container>
                     <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef>Status</th>
@@ -63,10 +63,10 @@
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef> Details </th>
                         <td mat-cell *matCellDef="let element">
-                            <span *ngFor="let  location of element.route; let idx = index"> 
+                            <span *ngFor="let  location of element.route; let idx = index">                                 
                                 <button  *ngIf="location.status==0" mat-raised-button class="bggrey">{{location.locationName}}</button>                               
-                                <button (click)="openDialog()"  *ngIf="location.status==1" mat-raised-button class="bggreen">{{location.locationName}}</button>
-                                <button (click)="openDialog()" *ngIf="location.status==2" mat-raised-button class="bgred">{{location.locationName}}</button>
+                                <button (click)="openDialog(location.type,location.id)"  *ngIf="location.status==1" mat-raised-button class="bggreen">{{location.locationName}}</button>
+                                <button (click)="openDialog(location.type,location.id)" *ngIf="location.status==2" mat-raised-button class="bgred">{{location.locationName}}</button>
                                 <span *ngIf="element.route.length > idx+1">
                                     <b>==></b>
                                 </span>

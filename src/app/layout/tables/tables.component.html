@@ -21,29 +21,30 @@
                     </ng-container>
                     <ng-container matColumnDef="startDate">
                         <th mat-header-cell *matHeaderCellDef> Start Date </th>
-                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.processTimeStamp | date:'short'}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.processTimeStamp*1000 | date:'MM/dd/yyyy H:m:s'}}</td>
                     </ng-container>
                     <ng-container matColumnDef="lastUpdatedDate">
                         <th mat-header-cell *matHeaderCellDef>Last Updated</th>
-                        <td mat-cell *matCellDef="let element"> {{element.fileRegistry.updatedAt | date:'short'}} </td>
+                        <td mat-cell *matCellDef="let element">{{element.lastTimeStamp*1000 |date: 'MM/dd/yyyy H:m:s'}} </td>
                     </ng-container>
                     <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef>Status</th>
                         <td mat-cell *matCellDef="let element">
-                            <span [ngStyle]="{'color':'green'}" *ngIf="element.fileRegistry.status == 1">In-Progress</span>
-                            <span [ngStyle]="{'color':'red'}" *ngIf="element.fileRegistry.status == 0">failed</span>
-                            <span [ngStyle]="{'color':'orange'}" *ngIf="element.fileRegistry.status == 2">competed</span>
+                            <span [ngStyle]="{'color':'blue'}" *ngIf="element.status == 0">In-Progress</span>
+                            <span [ngStyle]="{'color':'green'}" *ngIf="element.status == 1">Completed</span>
+                            <span [ngStyle]="{'color':'red'}" *ngIf="element.status == 2">Failed</span>
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef> Details </th>
                         <td mat-cell *matCellDef="let element">
                             <span *ngFor="let  location of element.route; let idx = index">
-                                <button mat-raised-button class="bggreen">{{location.locationName}}</button>
+                                <button *ngIf="location.status==0" mat-raised-button class="bggrey">{{location.locationName}}</button>
+                                <button (click)="openDialog(location.type,location.id)" *ngIf="location.status==1" mat-raised-button class="bggreen">{{location.locationName}}</button>
+                                <button (click)="openDialog(location.type,location.id)" *ngIf="location.status==2" mat-raised-button class="bgred">{{location.locationName}}</button>
                                 <span *ngIf="element.route.length > idx+1">
                                     <b>==></b>
                                 </span>
-
                             </span>
 
                             <!-- <button mat-raised-button class="bggreen">loc 1</button>

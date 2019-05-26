@@ -15,6 +15,24 @@ export class IndexService {
     public getUserById() {
         return this.httpClient.get(this.testApiUrl);
     }
+    public  getUserByEmail(email){
+        return <any> this.httpClient.get(this.userApiUrl+"users/email/"+email);
+    }
+    public  saveUser(data){
+        return <any> this.httpClient.post(this.userApiUrl+"users",data);
+    }
+    public  loggedin(data){
+        return <any> this.httpClient.post(this.userApiUrl+"users/login",data);
+    }
+    public  getFileRegistryById(id){
+        return <any> this.httpClient.get(this.userApiUrl+"fileRepository/"+id);
+    }
+    public  getTransportLogById(id){
+        return <any> this.httpClient.get(this.userApiUrl+"transportLog/"+id);
+    }
+    public  getBoomiLogById(id){
+        return <any> this.httpClient.get(this.userApiUrl+"boomiLog/"+id);
+    }
     public  getAllusers(){
         return <any> this.httpClient.get(this.userApiUrl+"users");
     }
@@ -29,6 +47,9 @@ export class IndexService {
 
     public  getTransport(){    
         return this.httpClient.get(this.userApiUrl+"dashboard/fileRegcount");
+    }
+    public  getBarchart(){    
+        return this.httpClient.get(this.userApiUrl+"dashboard/barchart");
     }
 
 

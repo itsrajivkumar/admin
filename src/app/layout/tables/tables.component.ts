@@ -40,11 +40,7 @@ export class TablesComponent implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
 
     constructor(public dialog: MatDialog, public indexService: IndexService) {
-        // Create 100 users
-        const users: UserData[] = [];
-        for (let i = 1; i <= 100; i++) {
-            users.push(createNewUser(i));
-        }
+      
         //this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     }
 
@@ -52,16 +48,20 @@ export class TablesComponent implements OnInit {
         // Assign the data to the data source for the table to render
         this.indexService.getFileRegistry().subscribe((result:any) => {     
             this.dataSource = new MatTableDataSource(result.data);
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
         }, err => { console.log(err) });
 
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+       
     }
 
-    applyFilter(filterValue: string) {
+    applyFilter(filterValue:any) {
         filterValue = filterValue.trim(); // Remove whitespace
         filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        
         this.dataSource.filter = filterValue;
+
+        console.log("rajivvvvvvvvvvv",this.dataSource);
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();
         }

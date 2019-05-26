@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,ChangeDetectorRef  } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
@@ -7,6 +7,8 @@ import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component
 import { IndexService } from '../../shared/services/index';
 import { resolve } from 'path';
 import { reject } from 'q';
+import {Router} from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 export interface PeriodicElement {
     firstName: string;
@@ -34,7 +36,7 @@ export class UsersComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public indexService: IndexService) {
+    constructor(private changeDetectorRefs:ChangeDetectorRef,private toastr: ToastrService,private router: Router,private formBuilder: FormBuilder, public dialog: MatDialog, public indexService: IndexService) {
 
         this.userForm = this.formBuilder.group({
             firstName: ['', [Validators.required]],
@@ -54,9 +56,33 @@ export class UsersComponent implements OnInit {
 
     isEmailUnique(control: FormControl) {
         return new Promise((resolve, reject) => {
-            resolve({ 'isEmailUnique': false });
+            return this.indexService.getUserByEmail(control.value).subscribe(res=>{
+                if(res.data.length>0)
+                    resolve({ 'isEmailUnique': true });
+                else
+                    resolve(null);
+            },err=>{});
+            
+            //resolve({ 'isEmailUnique': false });
         })
 
+    }
+
+    onSave() {
+      // console.log(JSON.stringify(this.userForm.value));
+       this.indexService.saveUser(this.userForm.value).subscribe(
+           res=>{
+            this.userForm.reset();
+            this.onActivateUserListing();
+            this.loadData();
+            
+            this.toastr.success('', 'User Saved Successfully !');
+      
+                
+            },
+           err=>{}
+       );
+      
     }
 
     onActivateCreateUser() {
@@ -68,6 +94,16 @@ export class UsersComponent implements OnInit {
         this.userListing = true;
 
     }
+    loadData(){
+        
+        this.indexService.getAllusers().subscribe((res) => {
+            this.changeDetectorRefs.detectChanges();            
+            this.dataSource = new MatTableDataSource(res.data);
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+            
+        }, err => { console.log(err) });
+    }
 
     ngOnInit() {
         this.indexService.getUserById().subscribe((res) => {
@@ -76,12 +112,9 @@ export class UsersComponent implements OnInit {
             err => { console.log(err) }
         );
 
-        this.indexService.getAllusers().subscribe((res) => {
-            this.dataSource = new MatTableDataSource(res.data);
-        }, err => { console.log(err) });
+        this.loadData();
 
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        
 
     }
 
@@ -104,10 +137,7 @@ export class UsersComponent implements OnInit {
             this.animal = result;
         });
     }
-    saveUser = (userForm) => {
-        alert("Going to save users"+userForm)
-
-    }
+   
 }
 
 

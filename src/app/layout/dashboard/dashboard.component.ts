@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component';
 import { IndexService } from '../../shared/services/index';
 import { ToastrService } from 'ngx-toastr';
+import { Response } from 'selenium-webdriver/http';
 export interface PeriodicElement {
     data: string;
     process: string;
@@ -35,8 +36,10 @@ export class DashboardComponent implements OnInit {
     dataSource: MatTableDataSource<any>;
     usercount: any;
     filecount: any;
-    successTransport:any;
-    failedTransport : any;
+    inprocesscount: any;
+    successTransport: any;
+    failedTransport: any;
+    barchartShow :boolean=false;
 
     // bar chart
     public barChartOptions: any = {
@@ -51,14 +54,13 @@ export class DashboardComponent implements OnInit {
             backgroundColor: '#01692C'
         }
     ];
-    public barChartLabels: string[] = ['Nov-18', 'Dec-18', 'Jan-19', 'Feb-19', 'Mar-19', 'April-19', 'May-19'];
+    public barChartData: any[]=[{data:'',label:'Failed Transport'},{data:'',label:'Successful Transport'}] ;
+    public yearArr: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    public barChartLabels: string[];
     public barChartType: string;
     public barChartLegend: boolean;
 
-    public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Failed Transport' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Successful Transport' }
-    ];
+    
 
 
     displayedColumns = ['process', 'data', 'startDate', 'lastUpdatedDate', 'status', 'action'];
@@ -71,34 +73,65 @@ export class DashboardComponent implements OnInit {
         this.dataSource.filter = filterValue;
     }
 
-    constructor(public dialog: MatDialog, public indexService: IndexService,private toastr: ToastrService) {
-       
-        
-    }
+    constructor(public dialog: MatDialog, public indexService: IndexService, private toastr: ToastrService) {
 
+
+    }
+   
     ngOnInit() {
-        this.toastr.success('Hello world!', 'Toastr fun!');
-        this.toastr.error('Error world!', 'Toastr fun!');
-        this.indexService.getFileRegistry().subscribe((response:any) => {
+        // this.toastr.success('Hello world!', 'Toastr fun!');
+        // this.toastr.error('Error world!', 'Toastr fun!');
+        this.barChartLabels = this.getBarChartLabel();
+        this.indexService.getBarchart().subscribe((response: any) => {
+            // { data: [65, 59, 80, 81, 56, 55], label: 'Failed Transport' },
+            // { data: [28, 48, 40, 19, 86, 27], label: 'Successful Transport' }
+           
+            
+            this.barChartData[0].data = response.data.failedArr;
+
+            
+            this.barChartData[1].data = response.data.successArr;
+
+            this.barChartType = 'bar';
+            this.barChartLegend = true;
+            this.barchartShow=true;
+          
+        }, err => { console.log(err) });
+        this.indexService.getFileRegistry().subscribe((response: any) => {
             this.dataSource = new MatTableDataSource(response.data);
         }, err => { console.log(err) });
-        
-        this.indexService.getUserCount().subscribe((response:any) => {
-            this.usercount = response.data;          
+
+        this.indexService.getUserCount().subscribe((response: any) => {
+            this.usercount = response.data;
         }, err => { console.log(err) });
-        this.indexService.getTransport().subscribe((response:any) => {
-            this.filecount = response.data.count;       
+        this.indexService.getTransport().subscribe((response: any) => {
+            this.filecount = response.data.count;
+            this.inprocesscount = response.data.inProcesscount;
             this.successTransport = response.data.successcount;
-            this.failedTransport = response.data.failurecount;   
+            this.failedTransport = response.data.failurecount;
         }, err => { console.log(err) });
 
-        this.barChartType = 'bar';
-        this.barChartLegend = true;
+        
     }
-    openDialog(): void {
+    getBarChartLabel() {
+        
+        let tempLabelArr = [];
+        for (let monthCount = 6; monthCount >= 1; monthCount--) { 
+                    
+            var d = new Date();          
+            d.setMonth(d.getMonth() - monthCount);
+            let month = d.getMonth();
+            let year = d.getFullYear();
+            
+            tempLabelArr.push(this.yearArr[month]+"-"+year);
+        }
+        
+        return tempLabelArr;
+    }
+    openDialog(type, id): void {
         const dialogRef = this.dialog.open(DialogLogsComponent, {
-           
-            data: { name: this.name, animal: this.animal }
+            width: '500px',
+            data: { type: type, id: id }
         });
 
         dialogRef.afterClosed().subscribe(result => {
