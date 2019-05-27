@@ -44,6 +44,10 @@ const routes: Routes = [
             {
                 path: 'blank-page',
                 loadChildren: './blank-page/blank-page.module#BlankPageModule'
+            },
+            {
+                path: 'profile',
+                loadChildren: './user-profile/user-profile.module#UserProfileModule'
             }
         ]
     }

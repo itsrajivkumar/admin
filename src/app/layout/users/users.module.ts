@@ -13,19 +13,22 @@ import { DialogLogsComponent } from '../shared/dialog-logs/dialog-logs.component
 import {DashboardModule} from '../dashboard/dashboard.module';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule,MatButtonToggleModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
     imports: [
         CommonModule,        
         UsersRoutingModule,
+        MatSlideToggleModule,
         MatTableModule,
         MatFormFieldModule,
         MatPaginatorModule,
         MatButtonModule,
         MatCardModule,
         MatCheckboxModule,
+        MatButtonToggleModule,
         MatDialogModule,
         MatIconModule,
         MatInputModule,

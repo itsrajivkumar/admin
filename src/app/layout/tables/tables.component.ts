@@ -61,15 +61,14 @@ export class TablesComponent implements OnInit {
         
         this.dataSource.filter = filterValue;
 
-        console.log("rajivvvvvvvvvvv",this.dataSource);
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();
         }
     }
-    openDialog(): void {
+    openDialog(type, id): void {
         const dialogRef = this.dialog.open(DialogLogsComponent, {
             width: '550px',
-            data: { name: this.name, animal: this.animal }
+            data: { type: type, id: id }
         });
 
         dialogRef.afterClosed().subscribe(result => {

@@ -104,6 +104,21 @@ export class UsersComponent implements OnInit {
             
         }, err => { console.log(err) });
     }
+    onStatusChange(event,userId) {
+        console.log('Toggle fired');
+        alert(userId);
+        let statusObj={status:0};
+        if(event.checked){
+            statusObj.status=1;
+
+        }
+        this.indexService.updateUserStatus(userId,statusObj).subscribe(
+            (res:any)=>{
+                this.toastr.success('', 'User Status Changed Successfully !');
+            },
+            (err:any)=>{}
+        );
+    }
 
     ngOnInit() {
         this.indexService.getUserById().subscribe((res) => {

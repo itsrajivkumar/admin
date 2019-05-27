@@ -21,6 +21,9 @@ export class IndexService {
     public  saveUser(data){
         return <any> this.httpClient.post(this.userApiUrl+"users",data);
     }
+    public  updateUserStatus(userId:any,data:any){
+        return <any> this.httpClient.put(this.userApiUrl+"users/updatestatus/"+userId,data);
+    }
     public  loggedin(data){
         return <any> this.httpClient.post(this.userApiUrl+"users/login",data);
     }
