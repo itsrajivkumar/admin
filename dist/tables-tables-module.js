@@ -51,7 +51,7 @@ var TablesRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n <div fxFlex>\n        <mat-card>\n            <mat-card-header>\n                <mat-card-title>Transports</mat-card-title>\n            </mat-card-header>\n            <mat-card-content>\n<mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\" [class.isMobile]=\"isMobile\" matsort>\n        <ng-container matColumnDef=\"process\">\n            <th mat-header-cell *matHeaderCellDef> Process </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.process}} </td>\n        </ng-container>\n        <ng-container matColumnDef=\"data\">\n            <th mat-header-cell *matHeaderCellDef> Data </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.data}} </td>\n        </ng-container>\n        <ng-container matColumnDef=\"startDate\">\n            <th mat-header-cell *matHeaderCellDef> Start Date </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.startDate}} </td>\n        </ng-container>\n        <ng-container matColumnDef=\"lastUpdatedDate\">\n            <th mat-header-cell *matHeaderCellDef>Last Updated</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.lastUpdatedDate}} </td>\n        </ng-container>\n        <ng-container matColumnDef=\"status\">\n            <th mat-header-cell *matHeaderCellDef>Status</th>\n            <td mat-cell *matCellDef=\"let element\" [ngStyle]=\"{'color':element.color}\" > {{element.status}} </td>\n        </ng-container>\n        <ng-container matColumnDef=\"action\">\n            <th mat-header-cell *matHeaderCellDef> Details </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <button mat-raised-button class=\"bggreen\" >loc 1</button><b>==></b>\n                <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Failed'?'red':'green','color':'white'}\" >Loc 2</button><b>==></b>\n                <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Completed' ?'green':'grey','color':'white'}\" >Loc 3</button><b>==></b>\n                <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Completed'?'green':'grey','color':'white'}\">Loc 4</button><b>==></b>\n                <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Completed'?'green':'grey','color':'white'}\" >Loc 5</button>\n            </td>\n        </ng-container>\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n\n    <mat-paginator [pageSize]=\"10\" [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>\n</mat-card-content>\n</mat-card>\n"
+module.exports = "<div fxFlex>\n    <mat-card>\n        <mat-card-header>\n            <mat-card-title>Transports</mat-card-title>\n        </mat-card-header>\n        <mat-card-content>\n            <mat-form-field>\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n            </mat-form-field>\n\n            <div class=\"mat-elevation-z8\">\n\n                <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\" [class.isMobile]=\"isMobile\" matsort>\n                    <ng-container matColumnDef=\"process\">\n                        <th mat-header-cell *matHeaderCellDef> Process </th>\n                        <td mat-cell *matCellDef=\"let element\">{{element.fileRegistry.processName}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"data\">\n                        <th mat-header-cell *matHeaderCellDef>Data </th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fileRegistry.sourceDataName}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"startDate\">\n                        <th mat-header-cell *matHeaderCellDef> Start Date </th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fileRegistry.processTimeStamp*1000 | date:'MM/dd/yyyy H:m:s'}}</td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"lastUpdatedDate\">\n                        <th mat-header-cell *matHeaderCellDef>Last Updated</th>\n                        <td mat-cell *matCellDef=\"let element\">{{element.lastTimeStamp*1000 |date: 'MM/dd/yyyy H:m:s'}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status\">\n                        <th mat-header-cell *matHeaderCellDef>Status</th>\n                        <td mat-cell *matCellDef=\"let element\">\n                            <span [ngStyle]=\"{'color':'blue'}\" *ngIf=\"element.status == 0\">In-Progress</span>\n                            <span [ngStyle]=\"{'color':'green'}\" *ngIf=\"element.status == 1\">Completed</span>\n                            <span [ngStyle]=\"{'color':'red'}\" *ngIf=\"element.status == 2\">Failed</span>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"action\">\n                        <th mat-header-cell *matHeaderCellDef> Details </th>\n                        <td mat-cell *matCellDef=\"let element\">\n                            <span *ngFor=\"let  location of element.route; let idx = index\">\n                                <button *ngIf=\"location.status==0\" mat-raised-button class=\"bggrey\">{{location.locationName}}</button>\n                                <button (click)=\"openDialog(location.type,location.id)\" *ngIf=\"location.status==1\" mat-raised-button class=\"bggreen\">{{location.locationName}}</button>\n                                <button (click)=\"openDialog(location.type,location.id)\" *ngIf=\"location.status==2\" mat-raised-button class=\"bgred\">{{location.locationName}}</button>\n                                <span *ngIf=\"element.route.length > idx+1\">\n                                    <b>==></b>\n                                </span>\n                            </span>\n\n                            <!-- <button mat-raised-button class=\"bggreen\">loc 1</button>\n                            <b>==></b>\n                            <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Failed'?'red':'green','color':'white'}\">Loc 2</button>\n                            <b>==></b>\n                            <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Completed' ?'green':'grey','color':'white'}\">Loc 3</button>\n                            <b>==></b>\n                            <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Completed'?'green':'grey','color':'white'}\">Loc 4</button>\n                            <b>==></b>\n                            <button mat-raised-button [ngStyle]=\"{'background-color':element.status==='Completed'?'green':'grey','color':'white'}\">Loc 5</button> -->\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n\n                <mat-paginator [pageSize]=\"10\" [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </mat-card-content>\n    </mat-card>"
 
 /***/ }),
 
@@ -62,7 +62,7 @@ module.exports = "\n <div fxFlex>\n        <mat-card>\n            <mat-card-hea
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\n.mat-table th,\ntd {\n  text-align: center; }\n\n.bggreen {\n  background-color: green;\n  color: white; }\n\n.bgred {\n  background-color: red;\n  color: white; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211bS1kZXZlbG9wZXI0L0Rlc2t0b3AvdGVzdC9hbmd1bGFyLW1hdGVyaWFsL2dpdC9hZG1pbi9zcmMvYXBwL2xheW91dC90YWJsZXMvdGFibGVzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBVyxFQUNkOztBQUVEO0VBQ0ksZ0JBQWU7RUFDZixZQUFXLEVBQ2Q7O0FBRUQ7O0VBRUksbUJBQWtCLEVBQ3JCOztBQUVEO0VBQ0ksd0JBQXVCO0VBQ3ZCLGFBQ0osRUFBQzs7QUFFRDtFQUNJLHNCQUFxQjtFQUNyQixhQUNKLEVBQUMiLCJmaWxlIjoic3JjL2FwcC9sYXlvdXQvdGFibGVzL3RhYmxlcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuLm1hdC1mb3JtLWZpZWxkIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cbi5tYXQtdGFibGUgdGgsXG50ZCB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uYmdncmVlbiB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW47XG4gICAgY29sb3I6IHdoaXRlXG59XG5cbi5iZ3JlZCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xuICAgIGNvbG9yOiB3aGl0ZVxufSJdfQ== */"
+module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\n.mat-table th,\ntd {\n  text-align: center; }\n\n.bggreen {\n  background-color: green;\n  color: white; }\n\n.bgred {\n  background-color: red;\n  color: white; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211bS1kZXZlbG9wZXI0L0Rlc2t0b3AvdGVzdC9hbmd1bGFyLW1hdGVyaWFsL2dpdC9hZG1pbi9zcmMvYXBwL2xheW91dC90YWJsZXMvdGFibGVzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVyxFQUFBOztBQUdmO0VBQ0ksZUFBZTtFQUNmLFdBQVcsRUFBQTs7QUFHZjs7RUFFSSxrQkFBa0IsRUFBQTs7QUFHdEI7RUFDSSx1QkFBdUI7RUFDdkIsWUFDSixFQUFBOztBQUVBO0VBQ0kscUJBQXFCO0VBQ3JCLFlBQ0osRUFBQSIsImZpbGUiOiJzcmMvYXBwL2xheW91dC90YWJsZXMvdGFibGVzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGFibGUge1xuICAgIHdpZHRoOiAxMDAlO1xufVxuXG4ubWF0LWZvcm0tZmllbGQge1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuLm1hdC10YWJsZSB0aCxcbnRkIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5iZ2dyZWVuIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbjtcbiAgICBjb2xvcjogd2hpdGVcbn1cblxuLmJncmVkIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XG4gICAgY29sb3I6IHdoaXRlXG59Il19 */"
 
 /***/ }),
 
@@ -78,7 +78,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TablesComponent", function() { return TablesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _shared_dialog_logs_dialog_logs_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/dialog-logs/dialog-logs.component */ "./src/app/layout/shared/dialog-logs/dialog-logs.component.ts");
+/* harmony import */ var _shared_services_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/index */ "./src/app/shared/services/index.ts");
+/* harmony import */ var _shared_dialog_logs_dialog_logs_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/dialog-logs/dialog-logs.component */ "./src/app/layout/shared/dialog-logs/dialog-logs.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -92,30 +93,31 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var ELEMENT_DATA = [
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/05/19 12:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "In-Progress", action: 'Logs', color: "blue" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/06/19 13:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Completed", action: 'Logs', color: "green" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/07/19 14:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Failed", action: 'Logs', color: "red" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/08/19 15:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "In-Progress", action: 'Logs', color: "blue" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/09/19 16:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Completed", action: 'Logs', color: "green" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/10/19 17:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Failed", action: 'Logs', color: "red" },
-    { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/11/19 18:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "In-Progress", action: 'Logs', color: "blue" }
-];
+
+// const ELEMENT_DATA: PeriodicElement[] = [
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/05/19 12:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "In-Progress", action: 'Logs', color: "blue" },
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/06/19 13:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Completed", action: 'Logs', color: "green" },
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/07/19 14:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Failed", action: 'Logs', color: "red" },
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/08/19 15:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "In-Progress", action: 'Logs', color: "blue" },
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/09/19 16:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Completed", action: 'Logs', color: "green" },
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/10/19 17:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "Failed", action: 'Logs', color: "red" },
+//     { process: "FCC_Fin1", data: 'chart_of_ac1', startDate: "05/11/19 18:10:10", lastUpdatedDate: "05/05/19 12:10:10", status: "In-Progress", action: 'Logs', color: "blue" }
+// ];
 var TablesComponent = /** @class */ (function () {
-    function TablesComponent(dialog) {
+    function TablesComponent(dialog, indexService) {
         this.dialog = dialog;
+        this.indexService = indexService;
         this.displayedColumns = ['process', 'data', 'startDate', 'lastUpdatedDate', 'status', 'action'];
-        // Create 100 users
-        var users = [];
-        for (var i = 1; i <= 100; i++) {
-            users.push(createNewUser(i));
-        }
-        // Assign the data to the data source for the table to render
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](ELEMENT_DATA);
+        //this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     }
     TablesComponent.prototype.ngOnInit = function () {
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        var _this = this;
+        // Assign the data to the data source for the table to render
+        this.indexService.getFileRegistry().subscribe(function (result) {
+            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](result.data);
+            _this.dataSource.paginator = _this.paginator;
+            _this.dataSource.sort = _this.sort;
+        }, function (err) { console.log(err); });
     };
     TablesComponent.prototype.applyFilter = function (filterValue) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -125,11 +127,11 @@ var TablesComponent = /** @class */ (function () {
             this.dataSource.paginator.firstPage();
         }
     };
-    TablesComponent.prototype.openDialog = function () {
+    TablesComponent.prototype.openDialog = function (type, id) {
         var _this = this;
-        var dialogRef = this.dialog.open(_shared_dialog_logs_dialog_logs_component__WEBPACK_IMPORTED_MODULE_2__["DialogLogsComponent"], {
+        var dialogRef = this.dialog.open(_shared_dialog_logs_dialog_logs_component__WEBPACK_IMPORTED_MODULE_3__["DialogLogsComponent"], {
             width: '550px',
-            data: { name: this.name, animal: this.animal }
+            data: { type: type, id: id }
         });
         dialogRef.afterClosed().subscribe(function (result) {
             console.log('The dialog was closed');
@@ -150,7 +152,7 @@ var TablesComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./tables.component.html */ "./src/app/layout/tables/tables.component.html"),
             styles: [__webpack_require__(/*! ./tables.component.scss */ "./src/app/layout/tables/tables.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _shared_services_index__WEBPACK_IMPORTED_MODULE_2__["IndexService"]])
     ], TablesComponent);
     return TablesComponent;
 }());

@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"blank-page-blank-page-module":"blank-page-blank-page-module","default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e":"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e","default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb":"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb","default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module":"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module","charts-charts-module":"charts-charts-module","default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666":"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666","default~dashboard-dashboard-module~tables-tables-module~users-users-module":"default~dashboard-dashboard-module~tables-tables-module~users-users-module","tables-tables-module":"tables-tables-module","users-users-module":"users-users-module","forms-forms-module":"forms-forms-module","grid-grid-module":"grid-grid-module","login-login-module":"login-login-module","material-components-material-components-module":"material-components-material-components-module","layout-layout-module":"layout-layout-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"blank-page-blank-page-module":"blank-page-blank-page-module","default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5":"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5","default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a":"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a","default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module":"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module","charts-charts-module":"charts-charts-module","default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570":"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570","default~dashboard-dashboard-module~tables-tables-module~users-users-module":"default~dashboard-dashboard-module~tables-tables-module~users-users-module","tables-tables-module":"tables-tables-module","users-users-module":"users-users-module","forms-forms-module":"forms-forms-module","grid-grid-module":"grid-grid-module","login-login-module":"login-login-module","material-components-material-components-module":"material-components-material-components-module","user-profile-user-profile-module":"user-profile-user-profile-module","layout-layout-module":"layout-layout-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -112,7 +112,6 @@
 /******/ 				promises.push(installedChunkData[2] = promise);
 /******/
 /******/ 				// start chunk loading
-/******/ 				var head = document.getElementsByTagName('head')[0];
 /******/ 				var script = document.createElement('script');
 /******/ 				var onScriptComplete;
 /******/
@@ -144,7 +143,7 @@
 /******/ 					onScriptComplete({ type: 'timeout', target: script });
 /******/ 				}, 120000);
 /******/ 				script.onerror = script.onload = onScriptComplete;
-/******/ 				head.appendChild(script);
+/******/ 				document.head.appendChild(script);
 /******/ 			}
 /******/ 		}
 /******/ 		return Promise.all(promises);

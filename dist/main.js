@@ -14,67 +14,74 @@ var map = {
 	],
 	"./charts/charts.module": [
 		"./src/app/layout/charts/charts.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"charts-charts-module"
 	],
 	"./dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"default~dashboard-dashboard-module~tables-tables-module~users-users-module"
 	],
 	"./forms/forms.module": [
 		"./src/app/layout/forms/forms.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"forms-forms-module"
 	],
 	"./grid/grid.module": [
 		"./src/app/layout/grid/grid.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"grid-grid-module"
 	],
 	"./layout/layout.module": [
 		"./src/app/layout/layout.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
 		"layout-layout-module"
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"login-login-module"
 	],
 	"./material-components/material-components.module": [
 		"./src/app/layout/material-components/material-components.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"material-components-material-components-module"
 	],
 	"./tables/tables.module": [
 		"./src/app/layout/tables/tables.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"default~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"tables-tables-module"
 	],
+	"./user-profile/user-profile.module": [
+		"./src/app/layout/user-profile/user-profile.module.ts",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
+		"user-profile-user-profile-module"
+	],
 	"./users/users.module": [
 		"./src/app/layout/users/users.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~12220f3e",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~c3e05666",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~c1ff30cb",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~cd83c3f5",
+		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~bc6d9570",
+		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~0892e71a",
 		"default~charts-charts-module~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"default~dashboard-dashboard-module~tables-tables-module~users-users-module",
 		"users-users-module"
@@ -128,7 +135,8 @@ var routes = [
     {
         path: '',
         loadChildren: './layout/layout.module#LayoutModule',
-        canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
+        canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],
+        runGuardsAndResolvers: 'always'
     },
     {
         path: 'login',
@@ -140,7 +148,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { onSameUrlNavigation: 'reload' })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
             providers: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
         })
@@ -238,14 +246,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/fesm5/ngx-translate-http-loader.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _shared_services_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/services/index */ "./src/app/shared/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -271,14 +285,16 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_8__["CommonModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
                 _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_0__["LayoutModule"],
                 _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_1__["OverlayModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+                ngx_toastr__WEBPACK_IMPORTED_MODULE_9__["ToastrModule"].forRoot(),
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateModule"].forRoot({
                     loader: {
                         provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateLoader"],
@@ -287,8 +303,8 @@ var AppModule = /** @class */ (function () {
                     }
                 })
             ],
-            providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
+            providers: [_shared_services_index__WEBPACK_IMPORTED_MODULE_12__["IndexService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -337,6 +353,87 @@ var AuthGuard = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], AuthGuard);
     return AuthGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/index.ts":
+/*!******************************************!*\
+  !*** ./src/app/shared/services/index.ts ***!
+  \******************************************/
+/*! exports provided: IndexService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexService", function() { return IndexService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var IndexService = /** @class */ (function () {
+    function IndexService(httpClient) {
+        this.httpClient = httpClient;
+        this.testApiUrl = "https://jsonplaceholder.typicode.com/todos/1";
+        this.userApiUrl = "http://localhost:3004/micro/api/v1/";
+    }
+    IndexService.prototype.getUserById = function () {
+        return this.httpClient.get(this.testApiUrl);
+    };
+    IndexService.prototype.getUserByEmail = function (email) {
+        return this.httpClient.get(this.userApiUrl + "users/email/" + email);
+    };
+    IndexService.prototype.saveUser = function (data) {
+        return this.httpClient.post(this.userApiUrl + "users", data);
+    };
+    IndexService.prototype.updateUserStatus = function (userId, data) {
+        return this.httpClient.put(this.userApiUrl + "users/updatestatus/" + userId, data);
+    };
+    IndexService.prototype.loggedin = function (data) {
+        return this.httpClient.post(this.userApiUrl + "users/login", data);
+    };
+    IndexService.prototype.getFileRegistryById = function (id) {
+        return this.httpClient.get(this.userApiUrl + "fileRepository/" + id);
+    };
+    IndexService.prototype.getTransportLogById = function (id) {
+        return this.httpClient.get(this.userApiUrl + "transportLog/" + id);
+    };
+    IndexService.prototype.getBoomiLogById = function (id) {
+        return this.httpClient.get(this.userApiUrl + "boomiLog/" + id);
+    };
+    IndexService.prototype.getAllusers = function () {
+        return this.httpClient.get(this.userApiUrl + "users");
+    };
+    IndexService.prototype.getFileRegistry = function () {
+        return this.httpClient.get(this.userApiUrl + "transportId");
+    };
+    IndexService.prototype.getUserCount = function () {
+        return this.httpClient.get(this.userApiUrl + "dashboard/usercount");
+    };
+    IndexService.prototype.getTransport = function () {
+        return this.httpClient.get(this.userApiUrl + "dashboard/fileRegcount");
+    };
+    IndexService.prototype.getBarchart = function () {
+        return this.httpClient.get(this.userApiUrl + "dashboard/barchart");
+    };
+    IndexService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], IndexService);
+    return IndexService;
 }());
 
 
